@@ -17,7 +17,7 @@ Il va falloir
 
 
 
-<img src="img/1.jpg" width="700"/>
+<img src="IMG/1.jpg" width="700"/>
 
 
 

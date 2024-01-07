@@ -87,15 +87,16 @@ const int   daylightOffset_sec = 3600 * 0;
  
 // leds
 const int ledJourBleu = 0;
-const int ledJourBlanc = 1;
+const int ledJourBlanc = 12;
 const int ledJourRouge = 2;
-const int ledDemainBleu = 3;
+const int ledDemainBleu = 13;
 const int ledDemainBlanc = 4;
 const int ledDemainRouge = 5;
 
 
   void setup() {
   Serial.begin(115200);
+  Serial.setDebugOutput(true);
   delay(1000);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
@@ -115,6 +116,7 @@ const int ledDemainRouge = 5;
     pinMode(ledDemainBleu, OUTPUT);
     pinMode(ledDemainBlanc, OUTPUT);
     pinMode(ledDemainRouge, OUTPUT);
+    digitalWrite(ledJourBleu, HIGH);
 
 }
 
@@ -157,7 +159,14 @@ void loop() {
       // Extraire les valeurs
       const char* couleurJourJ = doc["couleurJourJ"];
       const char* couleurJourJ1 = doc["couleurJourJ1"];
- 
+
+      digitalWrite(ledJourBleu, LOW);
+      digitalWrite(ledJourBlanc, LOW);
+      digitalWrite(ledJourRouge, LOW);
+      digitalWrite(ledDemainBleu, LOW);
+      digitalWrite(ledDemainBlanc, LOW);
+      digitalWrite(ledDemainRouge, LOW);
+
       // DEBUG
       Serial.print("CouleurJourJ: ");
       Serial.println(couleurJourJ);
