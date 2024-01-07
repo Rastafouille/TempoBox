@@ -3,6 +3,7 @@
 // https://randomnerdtutorials.com/esp32-http-get-post-arduino/
 // https://randomnerdtutorials.com/esp8266-nodemcu-date-time-ntp-client-server-arduino/
 // https://data.rte-france.com/catalog/-/api/doc/user-guide/Tempo+Like+Supply+Contract/1.1#TLCRG02
+// MAKERTRONIC - https://www.youtube.com/watch?v=mw6xLQAqiKs&lc=UgwY5Fh_WTROy7Fow6h4AaABAg.9z1ZN67ggNI9z23zYdJtDm
 
 
 #include <ESP8266WiFi.h>
