@@ -16,8 +16,8 @@
 //     ! ATTENTION ELEMENTS SECRETS !
 // *****************************************
 
-const char* ssid =          "xxx";
-const char* password =      "xxx";
+const char* ssid =          "XXX";
+const char* password =      "XXX";
 
 
 // le certificat racine (format PEM) de https://particulier.edf.fr/
@@ -136,6 +136,7 @@ const int ledDemainRouge = 13;
   }
     digitalWrite(ledJourBleu, LOW);digitalWrite(ledJourBlanc, LOW);digitalWrite(ledJourRouge, LOW);
     digitalWrite(ledDemainBleu, LOW);digitalWrite(ledDemainBlanc, LOW);digitalWrite(ledDemainRouge, LOW);
+
   Serial.print("\nConnected to WiFi network with IP Address: ");
   Serial.println(WiFi.localIP());
   
@@ -191,6 +192,9 @@ void loop() {
       Serial.print("CouleurJourJ1: ");
       Serial.println(couleurJourJ1);
  
+      digitalWrite(ledJourBleu, LOW);digitalWrite(ledJourBlanc, LOW);digitalWrite(ledJourRouge, LOW);
+      digitalWrite(ledDemainBleu, LOW);digitalWrite(ledDemainBlanc, LOW);digitalWrite(ledDemainRouge, LOW);
+      
       // Affichage des LEDs du jour
       Serial.print("CouleurJourJ: ");
       if (strcmp(couleurJourJ, "TEMPO_BLEU") == 0) {
@@ -229,8 +233,8 @@ void loop() {
  
   http.end();
  
-  //delay(300000); // Attendre 5 minutes avant de recommencer
-  delay(10000); // Attendre 10 secondes avant de recommencer (pour debug)
+  delay(300000); // Attendre 5 minutes avant de recommencer
+  //delay(10000); // Attendre 10 secondes avant de recommencer (pour debug)
 
 
 
