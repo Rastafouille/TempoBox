@@ -87,29 +87,15 @@ const long  gmtOffset_sec = 3600 * 1;
 const int   daylightOffset_sec = 3600 * 0;
  
 // leds
-const int ledJourBleu = 0;
-const int ledJourBlanc = 12;
-const int ledJourRouge = 2;
-const int ledDemainBleu = 13;
-const int ledDemainBlanc = 4;
-const int ledDemainRouge = 5;
+const int ledJourBleu = 5;
+const int ledJourBlanc = 4;
+const int ledJourRouge = 0;
+const int ledDemainBleu = 2;
+const int ledDemainBlanc = 12;
+const int ledDemainRouge = 13;
 
 
   void setup() {
-  Serial.begin(115200);
-  Serial.setDebugOutput(true);
-  delay(1000);
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
-    Serial.write('.');
-  }
-  Serial.print("\nConnected to WiFi network with IP Address: ");
-  Serial.println(WiFi.localIP());
-  
-    // On configure le seveur NTP
-    configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
-
         // leds en sortie
     pinMode(ledJourBleu, OUTPUT);
     pinMode(ledJourBlanc, OUTPUT);
@@ -117,8 +103,44 @@ const int ledDemainRouge = 5;
     pinMode(ledDemainBleu, OUTPUT);
     pinMode(ledDemainBlanc, OUTPUT);
     pinMode(ledDemainRouge, OUTPUT);
-    digitalWrite(ledJourBleu, HIGH);
 
+    digitalWrite(ledJourBleu, LOW);digitalWrite(ledJourBlanc, LOW);digitalWrite(ledJourRouge, LOW);
+    digitalWrite(ledDemainBleu, LOW);digitalWrite(ledDemainBlanc, LOW);digitalWrite(ledDemainRouge, LOW);
+
+
+
+  Serial.begin(115200);
+  Serial.setDebugOutput(true);
+  delay(1000);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    digitalWrite(ledJourBleu, HIGH);digitalWrite(ledJourBlanc, LOW);digitalWrite(ledJourRouge, LOW);
+    digitalWrite(ledDemainBleu, LOW);digitalWrite(ledDemainBlanc, LOW);digitalWrite(ledDemainRouge, LOW);
+    delay(100);
+    digitalWrite(ledJourBleu, LOW);digitalWrite(ledJourBlanc, HIGH);digitalWrite(ledJourRouge, LOW);
+    digitalWrite(ledDemainBleu, LOW);digitalWrite(ledDemainBlanc, LOW);digitalWrite(ledDemainRouge, LOW);
+    delay(100);
+    digitalWrite(ledJourBleu, LOW);digitalWrite(ledJourBlanc, LOW);digitalWrite(ledJourRouge, HIGH);
+    digitalWrite(ledDemainBleu, LOW);digitalWrite(ledDemainBlanc, LOW);digitalWrite(ledDemainRouge, LOW);
+    delay(100);
+    digitalWrite(ledJourBleu, LOW);digitalWrite(ledJourBlanc, LOW);digitalWrite(ledJourRouge, LOW);
+    digitalWrite(ledDemainBleu, LOW);digitalWrite(ledDemainBlanc, LOW);digitalWrite(ledDemainRouge, HIGH);
+    delay(100);
+    digitalWrite(ledJourBleu, LOW);digitalWrite(ledJourBlanc, LOW);digitalWrite(ledJourRouge, LOW);
+    digitalWrite(ledDemainBleu, LOW);digitalWrite(ledDemainBlanc, HIGH);digitalWrite(ledDemainRouge, HIGH);
+    delay(100);
+    digitalWrite(ledJourBleu, LOW);digitalWrite(ledJourBlanc, LOW);digitalWrite(ledJourRouge, LOW);
+    digitalWrite(ledDemainBleu, HIGH);digitalWrite(ledDemainBlanc, LOW);digitalWrite(ledDemainRouge, LOW);
+    delay(100);
+    Serial.write('.');
+  }
+    digitalWrite(ledJourBleu, LOW);digitalWrite(ledJourBlanc, LOW);digitalWrite(ledJourRouge, LOW);
+    digitalWrite(ledDemainBleu, LOW);digitalWrite(ledDemainBlanc, LOW);digitalWrite(ledDemainRouge, LOW);
+  Serial.print("\nConnected to WiFi network with IP Address: ");
+  Serial.println(WiFi.localIP());
+  
+    // On configure le seveur NTP
+    configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
 }
 
 
@@ -161,12 +183,7 @@ void loop() {
       const char* couleurJourJ = doc["couleurJourJ"];
       const char* couleurJourJ1 = doc["couleurJourJ1"];
 
-      digitalWrite(ledJourBleu, LOW);
-      digitalWrite(ledJourBlanc, LOW);
-      digitalWrite(ledJourRouge, LOW);
-      digitalWrite(ledDemainBleu, LOW);
-      digitalWrite(ledDemainBlanc, LOW);
-      digitalWrite(ledDemainRouge, LOW);
+
 
       // DEBUG
       Serial.print("CouleurJourJ: ");
