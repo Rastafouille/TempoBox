@@ -4,8 +4,8 @@
 #include <ArduinoJson.h>
 
 
-const char* ssid = "Maiz";  //--> Your wifi name
-const char* password = "rastafouille"; //--> Your wifi password
+const char* ssid = "xxx";  //--> Your wifi name
+const char* password = "xxx"; //--> Your wifi password
 // leds
 const int ledJourBleu = 15;
 const int ledJourBlanc = 2;
