@@ -1,5 +1,5 @@
 # TempoBox
-Boitier connecté pour affichage de la couleur EDF tempo du jour et lendemain.
+Boitier connecté pour affichage de la couleur EDF tempo du jour et lendemain
 
 Il va falloir 
  - un ESP8266 pour se connecter au réseau et récupérer les infos EDF
